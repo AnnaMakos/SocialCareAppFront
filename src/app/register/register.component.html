@@ -1,0 +1,95 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Rejestracja</mat-card-title>
+  </mat-card-header>
+  
+  <mat-card-content>
+    <form class="example-form">
+      <table class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Login" [(ngModel)]="username" name="username" required>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Hasło" [(ngModel)]="password" type="password" name="password" required>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Imię" [(ngModel)]="name" name="name" required>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Nazwisko" [(ngModel)]="surname" name="surname" required>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Adres e-mail" [(ngModel)]="email" name="email" required>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Numer PESEL" [(ngModel)]="pesel" name="pesel" required>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Ulica" [(ngModel)]="street" name="street" required>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Numer domu" [(ngModel)]="streetNumber" name="streetNumber" required>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Numer lokalu" [(ngModel)]="localNumber" name="localNumber">
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Kod pocztowy" [(ngModel)]="postcode" name="postcode" required>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Miasto" [(ngModel)]="city" name="city" required>
+            </mat-form-field>
+          </td>
+        </tr>
+
+
+
+      </table>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button [disabled]="!username || !password || !name || !surname || !email || !pesel || !street || !streetNumber || !postcode || !city" (click)="register()" color="primary">Zarejestruj</button>
+  </mat-card-actions>
+</mat-card>

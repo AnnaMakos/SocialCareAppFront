@@ -1,0 +1,38 @@
+ 
+<div>
+    <mat-table #table [dataSource]="users">
+      <ng-container matColumnDef="username">
+        <mat-header-cell *matHeaderCellDef>Login</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.username}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef>Imię</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="surname">
+        <mat-header-cell *matHeaderCellDef>Nazwisko</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.surname}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef>E-mail</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="roles">
+        <mat-header-cell *matHeaderCellDef>Role</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.roles}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="addRole">
+        <mat-header-cell *matHeaderCellDef>Dodaj rolę</mat-header-cell>
+        <mat-cell *matCellDef="let element"><button mat-button>Urzędnik</button></mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  
+    </mat-table>
+  </div>
