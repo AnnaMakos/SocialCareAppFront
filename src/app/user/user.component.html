@@ -1,1 +1,15 @@
-<p>user works!</p>
+<p>user</p>
+<h2>Profil użytkownika</h2>
+
+<div class="container">
+    <mat-toolbar color="primary" class="top-toolbar">
+        <mat-toolbar-row>
+            <span class="example-fill-remaining-space"></span>
+            <span class="example-spacer"></span>
+            <button mat-button [routerLink]="['./profile']">Edytuj profil</button>
+            <button mat-button>Moje aplikacje</button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+
+<router-outlet></router-outlet>
+</div>

@@ -11,11 +11,17 @@ import { AuthService } from './auth/auth.service';
 import { TokenStorage } from './auth/token.storage';
 import { Interceptor } from './auth/interceptor';
 import { CommonModule } from '@angular/common';
-import { MatToolbarModule, MatButtonModule, MatCardModule, MatInputModule, MatDialogModule, MatTableModule, MatTableDataSource } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatCardModule, MatInputModule, MatDialogModule, MatTableModule, MatTableDataSource, MatSnackBarModule, MatMenuModule } from '@angular/material';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserService } from './service/user.service';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { InstitutionPanelComponent } from './institution-panel/institution-panel.component';
+import { InstitutionListComponent } from './institution-list/institution-list.component';
+import { InstitutionService } from './service/institution.service';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { HomeInstitutionsComponent } from './home-institutions/home-institutions.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +30,12 @@ import { UserService } from './service/user.service';
     UserComponent,
     RegisterComponent,
     HomeComponent,
-    UserListComponent
+    UserListComponent,
+    AdminPanelComponent,
+    InstitutionPanelComponent,
+    InstitutionListComponent,
+    UserProfileComponent,
+    HomeInstitutionsComponent
   ],
   imports: [
     BrowserModule,
@@ -38,9 +49,11 @@ import { UserService } from './service/user.service';
     MatCardModule,
     MatInputModule,
     MatDialogModule,
-    MatTableModule
+    MatTableModule,
+    MatSnackBarModule,
+    MatMenuModule
   ],
-  providers: [AuthService, TokenStorage, UserService,
+  providers: [AuthService, TokenStorage, UserService, InstitutionService,
   {provide: HTTP_INTERCEPTORS,
   useClass: Interceptor,
   multi: true}],

@@ -1,3 +1,5 @@
+<p>app</p>
+
 <div class="container">
   <mat-toolbar color="primary" class="top-toolbar">
     <mat-toolbar-row>
@@ -12,10 +14,11 @@
       </ng-container>
       <ng-container *ngIf="ifSignedIn">
         <button mat-raised-button class="span-menu" (click)="signOut()">Wyloguj</button>
-        <button mat-raised-button class="span-menu" (click)="showRoles()">{{this.username}}</button>
+        <button mat-raised-button class="span-menu" [routerLink]="['/user']">Profil użytkownika {{this.username}}</button>
       </ng-container>
       <ng-container *ngIf="ifAdmin()">
-        <button mat-raised-button class="span-menu" [routerLink]="['/userlist']">Panel administratora</button>
+        <button mat-raised-button class="span-menu" [routerLink]="['/adminpanel/userlist']">Panel
+          administratora</button>
       </ng-container>
     </mat-toolbar-row>
   </mat-toolbar>
