@@ -1,2 +1,34 @@
 <p>user-profile</p>
-<h2>Twoje dane</h2>
+<div>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Moje dane</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+            <div class="container">
+                <mat-list>
+                    <div class="row">
+                        <div class="col">
+                            <mat-list-item>Login</mat-list-item>
+                            <mat-list-item>Imię</mat-list-item>
+                            <mat-list-item>Nazwisko</mat-list-item>
+                            <mat-list-item>Email</mat-list-item>
+                            <mat-list-item>Numer PESEL</mat-list-item>
+                            <mat-list-item>Adres</mat-list-item>
+                        </div>
+                        <div class="col">
+                            <mat-list-item>{{currentUser.username}}</mat-list-item>
+                            <mat-list-item>{{currentUser.name}}</mat-list-item>
+                            <mat-list-item>{{currentUser.surname}}</mat-list-item>
+                            <mat-list-item>{{currentUser.email}}</mat-list-item>
+                            <mat-list-item>{{currentUser.pesel}}</mat-list-item>
+                            <mat-list-item>{{currentUser.street}} {{currentUser.streetNumber}} {{currentUser.localNumber}},</mat-list-item>
+                            <mat-list-item>{{currentUser.postcode}} {{currentUser.city}}</mat-list-item>
+                        </div>
+                    </div>
+                </mat-list>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

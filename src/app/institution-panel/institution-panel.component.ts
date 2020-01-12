@@ -30,8 +30,5 @@ export class InstitutionPanelComponent implements OnInit {
     this.userService.changeUsername(username);
   }
 
-  getUsername() {
-    this.userService.currentUsername.subscribe(username => this.username = username);
-  }
 
 }

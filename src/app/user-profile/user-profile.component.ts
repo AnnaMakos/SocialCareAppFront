@@ -10,19 +10,17 @@ import { UserDTO } from '../user/user.model';
 })
 export class UserProfileComponent implements OnInit {
 
- // user = new MatTableDataSource<UserDTO>();
-
+  currentUser: UserDTO;
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
+    this.refresh();
   }
 
-  // refresh(){
-  //   this.userService.findAllUsers().subscribe(users => {
-  //     this.user.data = users;
-  //     this.changeRoleNames();
-  //   })
-  // }
+  refresh(){
+    this.userService.getCurrentUser().subscribe(user =>
+      this.currentUser = user)
+  }
 
 }

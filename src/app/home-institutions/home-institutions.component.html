@@ -16,17 +16,30 @@
     <ng-container matColumnDef="officials">
       <mat-header-cell *matHeaderCellDef></mat-header-cell>
       <mat-cell *matCellDef="let element">
-        <button mat-button [matMenuTriggerFor]="menu">Znajdź urzędnika</button>
+        <button mat-button [matMenuTriggerFor]="menu" (click)="findOfficialsByInstitution(element.id)">Znajdź
+          urzędnika</button>
         <mat-menu #menu="matMenu">
-          <button mat-menu-item>Item 1</button>
-          <button mat-menu-item>Item 2</button>
+          <button mat-menu-item *ngFor="let official of officials">
+            {{official.name}} {{official.surname}}
+            <button mat-icon-button *ngIf="ifSignedIn">
+              <mat-icon>message</mat-icon>
+            </button>
+          </button>
         </mat-menu>
       </mat-cell>
     </ng-container>
 
+    <ng-container matColumnDef="map">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button mat-button (click)="selectInstitutionId(element.id)"
+        [routerLink]="['../maps']">Zobacz mapę</button>
+      </mat-cell>
+    </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 
   </mat-table>
+  <router-outlet></router-outlet>
 </div>

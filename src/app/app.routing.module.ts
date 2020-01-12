@@ -10,6 +10,7 @@ import { InstitutionPanelComponent } from './institution-panel/institution-panel
 import { InstitutionListComponent } from './institution-list/institution-list.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { HomeInstitutionsComponent } from './home-institutions/home-institutions.component';
+import { GoogleMapsComponent } from './google-maps/google-maps.component';
 
 const routes: Routes = [
   {
@@ -26,7 +27,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   {
     path: 'home', component: HomeComponent, children: [
-      { path: 'institutions', component: HomeInstitutionsComponent }
+      { path: 'institutions', component: HomeInstitutionsComponent },
+      {path: 'maps', component: GoogleMapsComponent}
     ]
   },
   {

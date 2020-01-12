@@ -11,7 +11,7 @@ import { AuthService } from './auth/auth.service';
 import { TokenStorage } from './auth/token.storage';
 import { Interceptor } from './auth/interceptor';
 import { CommonModule } from '@angular/common';
-import { MatToolbarModule, MatButtonModule, MatCardModule, MatInputModule, MatDialogModule, MatTableModule, MatTableDataSource, MatSnackBarModule, MatMenuModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatCardModule, MatInputModule, MatDialogModule, MatTableModule, MatTableDataSource, MatSnackBarModule, MatMenuModule, MatIconModule, MatDividerModule, MatListModule } from '@angular/material';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { UserListComponent } from './user-list/user-list.component';
@@ -22,6 +22,7 @@ import { InstitutionListComponent } from './institution-list/institution-list.co
 import { InstitutionService } from './service/institution.service';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { HomeInstitutionsComponent } from './home-institutions/home-institutions.component';
+import { GoogleMapsComponent } from './google-maps/google-maps.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { HomeInstitutionsComponent } from './home-institutions/home-institutions
     InstitutionPanelComponent,
     InstitutionListComponent,
     UserProfileComponent,
-    HomeInstitutionsComponent
+    HomeInstitutionsComponent,
+    GoogleMapsComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +53,11 @@ import { HomeInstitutionsComponent } from './home-institutions/home-institutions
     MatDialogModule,
     MatTableModule,
     MatSnackBarModule,
-    MatMenuModule
+    MatMenuModule,
+    MatIconModule,
+    MatCardModule,
+    MatDividerModule,
+    MatListModule
   ],
   providers: [AuthService, TokenStorage, UserService, InstitutionService,
   {provide: HTTP_INTERCEPTORS,

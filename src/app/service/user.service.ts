@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
-import { User, UserDTO } from '../user/user.model';
+import { User, UserDTO, UserBasicDTO } from '../user/user.model';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -10,12 +10,12 @@ const httpOptions = {
 @Injectable()
 export class UserService {
 
-  constructor(private http: HttpClient) { }
-
   private userUrl = 'http://localhost:8080/users';
-
   private usernameSource = new BehaviorSubject<string>('');
   currentUsername = this.usernameSource.asObservable();
+
+  constructor(private http: HttpClient) { }
+
   public changeUsername(username: string) {
     this.usernameSource.next(username);
   }
@@ -25,7 +25,7 @@ export class UserService {
   }
 
   public findUserByUsername(username: string): Observable<UserDTO> {
-    return 
+    return
   }
 
   public alterUserRole(username: string, rolename: string): Observable<UserDTO> {
@@ -38,6 +38,14 @@ export class UserService {
 
   public alterUserInstitution(username: string, institutionId: number): Observable<UserDTO> {
     return this.http.put<UserDTO>(this.userUrl + "/alterinstitution/" + username + "/" + institutionId, null);
+  }
+
+  public findOfficialsByInstitution(institutionId: number): Observable<UserBasicDTO[]> {
+    return this.http.get<UserBasicDTO[]>(this.userUrl + "/officials/institution/" + institutionId);
+  }
+
+  public getCurrentUser(): Observable<UserDTO>{
+    return this.http.get<UserDTO>(this.userUrl + "/current");
   }
 
 }
