@@ -1,13 +1,10 @@
-<p>app</p>
-
-<div class="container">
-  <mat-toolbar color="primary" class="top-toolbar">
+  <div class="container">
+  <mat-toolbar color="primary" class="mat-elevation-z24">
     <mat-toolbar-row>
-      <span class="example-fill-remaining-space"></span>
+      <button mat-button class="my-header" [routerLink]="['/home']">OŚRODEK POMOCY SPOŁECZNEJ</button>
       <span class="example-spacer"></span>
-      
-
-      <button mat-fab [routerLink]="['/home']">Home</button>
+    
+      <button mat-raised-button class="span-menu" color="accent" [routerLink]="['/home']">Strona główna</button>
 
       <ng-container *ngIf="!ifSignedIn">
         <button mat-raised-button class="span-menu" [routerLink]="['/login']">Zaloguj</button>
@@ -25,4 +22,4 @@
   </mat-toolbar>
 
   <router-outlet></router-outlet>
-</div>
+  </div>

@@ -1,41 +1,48 @@
-<p>institution-panel</p>
-
 <div>
-  <mat-table #table [dataSource]="officials">
-    <ng-container matColumnDef="username">
-      <mat-header-cell *matHeaderCellDef>Login</mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.username}} </mat-cell>
-    </ng-container>
+  <mat-card class="mat-elevation-z24">
+    <mat-card-header>
+      <mat-card-title>Urzędnicy (institution-panel)</mat-card-title>
+    </mat-card-header>
 
-    <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef>Imię</mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
-    </ng-container>
+    <mat-card-content>
+      <mat-table #table [dataSource]="officials">
+        <ng-container matColumnDef="username">
+          <mat-header-cell *matHeaderCellDef>Login</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.username}} </mat-cell>
+        </ng-container>
 
-    <ng-container matColumnDef="surname">
-      <mat-header-cell *matHeaderCellDef>Nazwisko</mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.surname}} </mat-cell>
-    </ng-container>
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef>Imię</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+        </ng-container>
 
-    <ng-container matColumnDef="email">
-      <mat-header-cell *matHeaderCellDef>E-mail</mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
-    </ng-container>
+        <ng-container matColumnDef="surname">
+          <mat-header-cell *matHeaderCellDef>Nazwisko</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.surname}} </mat-cell>
+        </ng-container>
 
-    <ng-container matColumnDef="institution">
-      <mat-header-cell *matHeaderCellDef>Instytucja</mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.institution ? element.institution.name: "-"}} </mat-cell>
-    </ng-container>
+        <ng-container matColumnDef="email">
+          <mat-header-cell *matHeaderCellDef>E-mail</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+        </ng-container>
 
-    <ng-container matColumnDef="addInstitution">
-      <mat-header-cell *matHeaderCellDef>Dodaj instytucje</mat-header-cell>
-      <mat-cell *matCellDef="let element">
-        <button mat-button (click)="selectUsername(element.username)" [routerLink]="['../institutionlist']">Wybierz
-          instytucje</button></mat-cell>
-    </ng-container>
+        <ng-container matColumnDef="institution">
+          <mat-header-cell *matHeaderCellDef>Instytucja</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.institution ? element.institution.name: "-"}} </mat-cell>
+        </ng-container>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        <ng-container matColumnDef="addInstitution">
+          <mat-header-cell *matHeaderCellDef>Dodaj instytucje</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <button mat-raised-button color="primary" (click)="selectUsername(element.username)"
+              [routerLink]="['../institutionlist']">Wybierz
+              instytucje</button></mat-cell>
+        </ng-container>
 
-  </mat-table>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+      </mat-table>
+    </mat-card-content>
+  </mat-card>
 </div>

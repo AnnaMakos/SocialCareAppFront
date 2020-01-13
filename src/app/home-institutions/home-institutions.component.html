@@ -1,6 +1,14 @@
-<p>home-institutions</p>
-
 <div>
+  <mat-toolbar color="primary" class="mat-elevation-z24">
+    <mat-toolbar-row>
+      Instytucje (home-institutions)
+      <span class="example-spacer"></span>
+      <button mat-icon-button [routerLink]="['../']">
+        <mat-icon>cancel</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
   <mat-table #table [dataSource]="institutions">
 
     <ng-container matColumnDef="name">
@@ -16,7 +24,8 @@
     <ng-container matColumnDef="officials">
       <mat-header-cell *matHeaderCellDef></mat-header-cell>
       <mat-cell *matCellDef="let element">
-        <button mat-button [matMenuTriggerFor]="menu" (click)="findOfficialsByInstitution(element.id)">Znajdź
+        <button mat-raised-button color="primary" [matMenuTriggerFor]="menu"
+          (click)="findOfficialsByInstitution(element.id)">Znajdź
           urzędnika</button>
         <mat-menu #menu="matMenu">
           <button mat-menu-item *ngFor="let official of officials">
@@ -30,10 +39,11 @@
     </ng-container>
 
     <ng-container matColumnDef="map">
-      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-header-cell style="align-content: right;" *matHeaderCellDef>
+      </mat-header-cell>
       <mat-cell *matCellDef="let element">
-        <button mat-button (click)="selectInstitutionId(element.id)"
-        [routerLink]="['../maps']">Zobacz mapę</button>
+        <button mat-raised-button color="primary" (click)="selectInstitutionId(element.id)"
+          [routerLink]="['./maps']">Zobacz mapę</button>
       </mat-cell>
     </ng-container>
 
@@ -42,4 +52,5 @@
 
   </mat-table>
   <router-outlet></router-outlet>
+
 </div>

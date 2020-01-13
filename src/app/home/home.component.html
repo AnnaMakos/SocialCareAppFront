@@ -1,14 +1,9 @@
-<p>home</p>
-
-<div class="container">
-    <mat-toolbar color="primary" class="top-toolbar">
+<div>
+    <mat-toolbar color="primary" class="mat-elevation-z24">
         <mat-toolbar-row>
-            <span class="example-fill-remaining-space"></span>
             <span class="example-spacer"></span>
-            <button mat-button [routerLink]="['./institutions']">Nasze instytucje</button>
+            <button mat-raised-button color="accent" [routerLink]="['./institutions']">Nasze instytucje</button>
         </mat-toolbar-row>
     </mat-toolbar>
     <router-outlet></router-outlet>
-    <img src="../../assets/images/cat.jpg">
-
 </div>

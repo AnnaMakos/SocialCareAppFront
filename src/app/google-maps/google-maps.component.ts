@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AfterViewInit, ViewChild, ElementRef } from
   '@angular/core';
 import { InstitutionService } from '../service/institution.service';
+import { InstitutionDTO } from '../institution/institution.model';
 
 @Component({
   selector: 'app-google-maps',
@@ -13,6 +14,8 @@ export class GoogleMapsComponent implements AfterViewInit {
   @ViewChild('mapContainer', { static: false }) gmap: ElementRef;
   map: google.maps.Map;
   institutionId: number;
+  currentInstitutionName: string;
+  currentInstitutionAdress: string;
   geoX = -1;
   geoY = -1;
   coordinates = new google.maps.LatLng(this.geoX, this.geoY);
@@ -51,9 +54,12 @@ export class GoogleMapsComponent implements AfterViewInit {
     this.institutionService.currentInstitutionId.subscribe(id => {
       this.institutionId = id;
       this.institutionService.findInstitutionById(this.institutionId).subscribe(institution => {
+        this.currentInstitutionName = institution.name;
+        this.currentInstitutionAdress = institution.address;
         this.geoX = institution.geoX;
         this.geoY = institution.geoY;
         this.mapInitializer();
+        
       });
     });
   }

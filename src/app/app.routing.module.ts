@@ -27,8 +27,11 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   {
     path: 'home', component: HomeComponent, children: [
-      { path: 'institutions', component: HomeInstitutionsComponent },
-      {path: 'maps', component: GoogleMapsComponent}
+      {
+        path: 'institutions', component: HomeInstitutionsComponent, children: [
+          { path: 'maps', component: GoogleMapsComponent }
+        ]
+      }
     ]
   },
   {

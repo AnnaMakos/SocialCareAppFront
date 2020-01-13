@@ -1,15 +1,5 @@
-.top-icon {
-    padding: 0 4px;
-  }
-  
   .spacer {
     flex: 1 1 auto;
-  }
-  
-  .container {
-    height: 100%;
-    width: 100%;
-    text-align: center;
   }
   
   .span-menu {
@@ -17,15 +7,8 @@
     padding-right: 15px;
     margin: 2px;
   }
-  
-  .span-title {
-    padding-left: 10px;
-    padding-right: 0px;
+
+  .my-header {
+    color: rgb(126, 6, 56);
+    font-weight: bold;
   }
-  
-  .span-hello {
-    padding-left: 10px;
-    padding-right: 0px;
-    font-size: 15px;
-  }
-  

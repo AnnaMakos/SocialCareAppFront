@@ -1,14 +1,10 @@
-<p>admin-panel</p>
-
-<div class="container">
-    <mat-toolbar color="primary" class="top-toolbar">
+    <mat-toolbar color="primary" class="mat-elevation-z24">
       <mat-toolbar-row>
-        <span class="example-fill-remaining-space"></span>
+        <h2>Panel administratora (admin-panel)</h2>
         <span class="example-spacer"></span>
-        <button mat-button [routerLink]="['./userlist']">Użytkownicy</button>
-        <button mat-button [routerLink]="['./institutionpanel']">Urzędnicy</button>
+        <button mat-raised-button class="span-menu" color="accent" [routerLink]="['./userlist']">Użytkownicy</button>
+        <button mat-raised-button class="span-menu" color="accent" [routerLink]="['./institutionpanel']">Urzędnicy</button>
       </mat-toolbar-row>
     </mat-toolbar>
   
     <router-outlet></router-outlet>
-  </div>
