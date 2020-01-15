@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AfterViewInit, ViewChild, ElementRef } from
   '@angular/core';
 import { InstitutionService } from '../service/institution.service';
-import { InstitutionDTO } from '../institution/institution.model';
+import { InstitutionDTO } from '../model/institution.model';
 
 @Component({
   selector: 'app-google-maps',

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
-import { UserBasicDTO } from '../user/user.model';
+import { UserBasicDTO } from '../model/user.model';
 import { UserService } from '../service/user.service';
 
 @Component({

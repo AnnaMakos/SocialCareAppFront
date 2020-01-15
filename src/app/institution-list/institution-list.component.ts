@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InstitutionService } from '../service/institution.service';
 import { MatTableDataSource, MatSnackBar } from '@angular/material';
-import { InstitutionDTO } from '../institution/institution.model'
+import { InstitutionDTO } from '../model/institution.model'
 import { UserService } from '../service/user.service';
 import { Router } from '@angular/router';
 

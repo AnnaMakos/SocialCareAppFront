@@ -15,6 +15,9 @@
                             <mat-list-item>Email</mat-list-item>
                             <mat-list-item>Numer PESEL</mat-list-item>
                             <mat-list-item>Adres</mat-list-item>
+                            <mat-list-item></mat-list-item>
+                            <mat-list-item>Instytucja</mat-list-item>
+                            <mat-list-item>Adres instytucji</mat-list-item>
                         </div>
                         <div class="col">
                             <mat-list-item>{{currentUser.username}}</mat-list-item>
@@ -24,6 +27,8 @@
                             <mat-list-item>{{currentUser.pesel}}</mat-list-item>
                             <mat-list-item>{{currentUser.street}} {{currentUser.streetNumber}} {{currentUser.localNumber}},</mat-list-item>
                             <mat-list-item>{{currentUser.postcode}} {{currentUser.city}}</mat-list-item>
+                            <mat-list-item>{{currentUser.institution ? currentUser.institution.name : "-" }}</mat-list-item>
+                            <mat-list-item>{{currentUser.institution ? currentUser.institution.address : "-" }}</mat-list-item>
                         </div>
                     </div>
                 </mat-list>

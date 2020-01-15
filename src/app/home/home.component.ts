@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TokenStorage } from '../auth/token.storage';
 
 @Component({
   selector: 'app-home',
@@ -7,8 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  ifSignedIn: boolean = false;
 
+  constructor(private tokenStorage: TokenStorage) {
+    if (tokenStorage.ifSignedIn()) {
+      this.ifSignedIn = true;
+    }
+  }
+  
   ngOnInit() {
   }
 

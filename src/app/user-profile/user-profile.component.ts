@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../service/user.service';
 import { MatTableDataSource } from '@angular/material';
-import { UserDTO } from '../user/user.model';
+import { UserDTO } from '../model/user.model';
 
 @Component({
   selector: 'app-user-profile',
@@ -11,6 +11,7 @@ import { UserDTO } from '../user/user.model';
 export class UserProfileComponent implements OnInit {
 
   currentUser: UserDTO;
+  institutionName: string;
 
   constructor(private userService: UserService) { }
 

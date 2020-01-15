@@ -11,7 +11,7 @@
 
   <mat-table #table [dataSource]="institutions">
 
-    <ng-container matColumnDef="name">
+    <ng-container class="mat-elevation-z24" matColumnDef="name">
       <mat-header-cell *matHeaderCellDef>Nazwa</mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
     </ng-container>

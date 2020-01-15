@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource, MatSnackBar } from '@angular/material';
-import { InstitutionDTO } from '../institution/institution.model';
+import { InstitutionDTO } from '../model/institution.model';
 import { InstitutionService } from '../service/institution.service';
 import { UserService } from '../service/user.service';
-import { UserBasicDTO } from '../user/user.model';
+import { UserBasicDTO } from '../model/user.model';
 import { TokenStorage } from '../auth/token.storage';
 
 @Component({

@@ -11,7 +11,7 @@ import { AuthService } from './auth/auth.service';
 import { TokenStorage } from './auth/token.storage';
 import { Interceptor } from './auth/interceptor';
 import { CommonModule } from '@angular/common';
-import { MatToolbarModule, MatButtonModule, MatCardModule, MatInputModule, MatDialogModule, MatTableModule, MatTableDataSource, MatSnackBarModule, MatMenuModule, MatIconModule, MatDividerModule, MatListModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatCardModule, MatInputModule, MatDialogModule, MatTableModule, MatTableDataSource, MatSnackBarModule, MatMenuModule, MatIconModule, MatDividerModule, MatListModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { UserListComponent } from './user-list/user-list.component';
@@ -23,6 +23,8 @@ import { InstitutionService } from './service/institution.service';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { HomeInstitutionsComponent } from './home-institutions/home-institutions.component';
 import { GoogleMapsComponent } from './google-maps/google-maps.component';
+import { VisitPanelComponent } from './visit-panel/visit-panel.component';
+import { VisitService } from './service/visit.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { GoogleMapsComponent } from './google-maps/google-maps.component';
     InstitutionListComponent,
     UserProfileComponent,
     HomeInstitutionsComponent,
-    GoogleMapsComponent
+    GoogleMapsComponent,
+    VisitPanelComponent
   ],
   imports: [
     BrowserModule,
@@ -57,12 +60,14 @@ import { GoogleMapsComponent } from './google-maps/google-maps.component';
     MatIconModule,
     MatCardModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
-  providers: [AuthService, TokenStorage, UserService, InstitutionService,
+  providers: [AuthService, TokenStorage, UserService, InstitutionService, VisitService,
   {provide: HTTP_INTERCEPTORS,
   useClass: Interceptor,
-  multi: true}],
+  multi: true}],  
   bootstrap: [AppComponent]
 })
 export class AppModule { }

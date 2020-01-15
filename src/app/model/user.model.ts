@@ -1,5 +1,5 @@
 import {Role} from "../role/role.model"
-import {Institution, InstitutionDTO} from "../institution/institution.model"
+import {Institution, InstitutionDTO} from "./institution.model"
 
 export interface User{
     id: number;

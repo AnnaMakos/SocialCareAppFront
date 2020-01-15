@@ -6,6 +6,7 @@
 
     <mat-card-content>
       <mat-table #table [dataSource]="officials">
+        
         <ng-container matColumnDef="username">
           <mat-header-cell *matHeaderCellDef>Login</mat-header-cell>
           <mat-cell *matCellDef="let element"> {{element.username}} </mat-cell>
