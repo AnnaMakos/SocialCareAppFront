@@ -7,19 +7,31 @@
     </mat-toolbar-row>
 </mat-toolbar>
 
-
-<mat-form-field class="span-menu">
-    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Wyszukaj urzędnika">
-</mat-form-field>
-
 <mat-form-field class="example-full-width span-menu">
     <input matInput [min]="minDate" [matDatepickerFilter]="dateFilter" [matDatepicker]="picker"
+        (dateChange)="dateSearchFilter($event.target.value)" (keyup)="dateSearchFilter($event.target.value)"
         placeholder="Wybierz datę">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle >
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
 </mat-form-field>
 
 <mat-table #table class="mat-elevation-z24" [dataSource]="visits">
+
+    <ng-container matColumnDef="institution">
+        <mat-header-cell *matHeaderCellDef>Instytucja</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.official.institution.name}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="address">
+        <mat-header-cell *matHeaderCellDef>Adres</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.official.institution.address}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="official">
+        <mat-header-cell *matHeaderCellDef>Urzędnik</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.official.name}} {{element.official.surname}}</mat-cell>
+    </ng-container>
+
 
     <ng-container matColumnDef="day">
         <mat-header-cell *matHeaderCellDef>Data</mat-header-cell>
@@ -31,17 +43,21 @@
         <mat-cell *matCellDef="let element">{{element.visitDate.substring(11,16)}}</mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="official">
-        <mat-header-cell *matHeaderCellDef>Urzędnik</mat-header-cell>
-        <mat-cell *matCellDef="let element">{{element.official.name}}</mat-cell>
-    </ng-container>
+
 
     <ng-container matColumnDef="choose">
-        <mat-header-cell *matHeaderCellDef>Data</mat-header-cell>
-        <mat-cell *matCellDef="let element">Wybierz</mat-cell>
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let element">
+            <button mat-raised-button color="primary" [disabled]="element.taken"
+                (click)="alterVisitToTaken(currentUser.username, element.id)">
+                Wybierz
+            </button>
+        </mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 
 </mat-table>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>

@@ -35,7 +35,9 @@
         <ng-container matColumnDef="addInstitution">
           <mat-header-cell *matHeaderCellDef>Dodaj instytucje</mat-header-cell>
           <mat-cell *matCellDef="let element">
-            <button mat-raised-button color="primary" (click)="selectUsername(element.username)"
+            <button mat-raised-button color="primary"
+            [disabled]="element.institution"
+            (click)="selectUsername(element.username)"
               [routerLink]="['../institutionlist']">Wybierz
               instytucje</button></mat-cell>
         </ng-container>

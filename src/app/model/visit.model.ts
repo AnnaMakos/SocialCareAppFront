@@ -1,4 +1,4 @@
-import { User } from './user.model';
+import { User, UserDTO } from './user.model';
 
 export interface Visit {
     id: number;
@@ -12,6 +12,6 @@ export interface VisitDTO {
     id: number;
     visitDate: Date;
     taken: boolean;
-    user: User;
-    official: User;
+    user: UserDTO;
+    official: UserDTO;
 }

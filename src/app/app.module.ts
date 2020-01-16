@@ -11,7 +11,7 @@ import { AuthService } from './auth/auth.service';
 import { TokenStorage } from './auth/token.storage';
 import { Interceptor } from './auth/interceptor';
 import { CommonModule } from '@angular/common';
-import { MatToolbarModule, MatButtonModule, MatCardModule, MatInputModule, MatDialogModule, MatTableModule, MatTableDataSource, MatSnackBarModule, MatMenuModule, MatIconModule, MatDividerModule, MatListModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatCardModule, MatInputModule, MatDialogModule, MatTableModule, MatTableDataSource, MatSnackBarModule, MatMenuModule, MatIconModule, MatDividerModule, MatListModule, MatDatepickerModule, MatNativeDateModule, MatPaginatorModule } from '@angular/material';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { UserListComponent } from './user-list/user-list.component';
@@ -62,7 +62,8 @@ import { VisitService } from './service/visit.service';
     MatDividerModule,
     MatListModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatPaginatorModule
   ],
   providers: [AuthService, TokenStorage, UserService, InstitutionService, VisitService,
   {provide: HTTP_INTERCEPTORS,

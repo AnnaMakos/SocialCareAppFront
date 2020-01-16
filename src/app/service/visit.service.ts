@@ -18,5 +18,11 @@ export class VisitService {
         return this.http.get<VisitDTO[]>(this.visitUrl);
     }
 
+    public alterVisitToTaken(username: string, id: number): Observable<VisitDTO> {
+        console.log("=>>> sciezka: " + this.visitUrl + "/alter/" + username + "/" + id);
+        return this.http.put<VisitDTO>(this.visitUrl + "/alter/" + username + "/" + id, null);
+    }
+
+    
 
 }
