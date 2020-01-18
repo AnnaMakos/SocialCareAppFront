@@ -37,7 +37,6 @@ export class VisitPanelComponent implements OnInit {
   alterVisitToTaken(username: string, id: number) {
     this.visitService.alterVisitToTaken(username, id).subscribe(visit =>
       this.refresh());
-    console.log("=>>> visit id: " + id + " username: " + username);
   }
 
   dateFilter = (d: Date): boolean => {

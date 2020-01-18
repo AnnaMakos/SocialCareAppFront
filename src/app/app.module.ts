@@ -11,7 +11,7 @@ import { AuthService } from './auth/auth.service';
 import { TokenStorage } from './auth/token.storage';
 import { Interceptor } from './auth/interceptor';
 import { CommonModule } from '@angular/common';
-import { MatToolbarModule, MatButtonModule, MatCardModule, MatInputModule, MatDialogModule, MatTableModule, MatTableDataSource, MatSnackBarModule, MatMenuModule, MatIconModule, MatDividerModule, MatListModule, MatDatepickerModule, MatNativeDateModule, MatPaginatorModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatCardModule, MatInputModule, MatDialogModule, MatTableModule, MatTableDataSource, MatSnackBarModule, MatMenuModule, MatIconModule, MatDividerModule, MatListModule, MatDatepickerModule, MatNativeDateModule, MatPaginatorModule, MatSortModule } from '@angular/material';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { UserListComponent } from './user-list/user-list.component';
@@ -25,6 +25,7 @@ import { HomeInstitutionsComponent } from './home-institutions/home-institutions
 import { GoogleMapsComponent } from './google-maps/google-maps.component';
 import { VisitPanelComponent } from './visit-panel/visit-panel.component';
 import { VisitService } from './service/visit.service';
+import { MyVisitsComponent } from './my-visits/my-visits.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { VisitService } from './service/visit.service';
     UserProfileComponent,
     HomeInstitutionsComponent,
     GoogleMapsComponent,
-    VisitPanelComponent
+    VisitPanelComponent,
+    MyVisitsComponent
   ],
   imports: [
     BrowserModule,

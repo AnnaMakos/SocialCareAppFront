@@ -1,0 +1,43 @@
+<div>
+    <mat-card class="mat-elevation-z24">
+        <mat-card-header>
+            <mat-card-title>Moje wizyty (my-visits)</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+            <mat-table #table [dataSource]="visits">
+
+
+                <ng-container matColumnDef="institution">
+                    <mat-header-cell *matHeaderCellDef>Instytucja</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.official.institution.name}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="address">
+                    <mat-header-cell *matHeaderCellDef>Adres</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.official.institution.address}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="official">
+                    <mat-header-cell *matHeaderCellDef>Urzędnik</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.official.name}} {{element.official.surname}}
+                    </mat-cell>
+                </ng-container>
+
+
+                <ng-container matColumnDef="day">
+                    <mat-header-cell *matHeaderCellDef>Data</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.visitDate.substring(0,10)}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="time">
+                    <mat-header-cell *matHeaderCellDef>Godzina</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.visitDate.substring(11,16)}}</mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+            </mat-table>
+        </mat-card-content>
+    </mat-card>

@@ -12,11 +12,13 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { HomeInstitutionsComponent } from './home-institutions/home-institutions.component';
 import { GoogleMapsComponent } from './google-maps/google-maps.component';
 import { VisitPanelComponent } from './visit-panel/visit-panel.component';
+import { MyVisitsComponent } from './my-visits/my-visits.component';
 
 const routes: Routes = [
   {
     path: 'user', component: UserComponent, children: [
-      { path: 'profile', component: UserProfileComponent }
+      { path: 'profile', component: UserProfileComponent },
+      {path: 'visits', component: MyVisitsComponent}
     ]
   },
   { path: 'login', component: LoginComponent },
