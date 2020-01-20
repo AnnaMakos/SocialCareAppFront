@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app.routing.module';
 import { AuthService } from './auth/auth.service';
 import { TokenStorage } from './auth/token.storage';
@@ -26,6 +26,10 @@ import { GoogleMapsComponent } from './google-maps/google-maps.component';
 import { VisitPanelComponent } from './visit-panel/visit-panel.component';
 import { VisitService } from './service/visit.service';
 import { MyVisitsComponent } from './my-visits/my-visits.component';
+import { ApplicationListComponent } from './application-list/application-list.component';
+import { ApplicationService } from './service/application.service';
+import { ApplicationAddComponent } from './application-add/application-add.component';
+import { FileService } from './service/file.service';
 
 @NgModule({
   declarations: [
@@ -42,13 +46,16 @@ import { MyVisitsComponent } from './my-visits/my-visits.component';
     HomeInstitutionsComponent,
     GoogleMapsComponent,
     VisitPanelComponent,
-    MyVisitsComponent
+    MyVisitsComponent,
+    ApplicationListComponent,
+    ApplicationAddComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     CommonModule,
     MatToolbarModule,
@@ -67,10 +74,12 @@ import { MyVisitsComponent } from './my-visits/my-visits.component';
     MatNativeDateModule,
     MatPaginatorModule
   ],
-  providers: [AuthService, TokenStorage, UserService, InstitutionService, VisitService,
-  {provide: HTTP_INTERCEPTORS,
-  useClass: Interceptor,
-  multi: true}],  
+  providers: [AuthService, TokenStorage, UserService, InstitutionService, ApplicationService, VisitService, FileService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: Interceptor,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

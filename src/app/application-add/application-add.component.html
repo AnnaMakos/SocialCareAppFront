@@ -1,0 +1,30 @@
+<mat-card class="example-card mat-elevation-z24">
+    <mat-card-header>
+        <mat-card-title>Dodaj wniosek</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form class="example-form">
+            <table class="example-full-width" cellspacing="0">
+                <tr>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Nazwa" [(ngModel)]="name" name="name" required>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <form (ngSubmit)="upload()" [formGroup]="form">
+                            <input mat-input ng-model="file_upload" name="file" type="file"
+                                (change)="fileChange($event)" #fileInput>
+                            <br>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button (click)="addApplication()" color="primary">Dodaj wniosek</button>
+    </mat-card-actions>
+</mat-card>

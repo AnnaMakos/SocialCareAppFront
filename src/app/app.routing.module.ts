@@ -13,6 +13,8 @@ import { HomeInstitutionsComponent } from './home-institutions/home-institutions
 import { GoogleMapsComponent } from './google-maps/google-maps.component';
 import { VisitPanelComponent } from './visit-panel/visit-panel.component';
 import { MyVisitsComponent } from './my-visits/my-visits.component';
+import { ApplicationListComponent } from './application-list/application-list.component';
+import { ApplicationAddComponent } from './application-add/application-add.component';
 
 const routes: Routes = [
   {
@@ -35,14 +37,16 @@ const routes: Routes = [
           { path: 'maps', component: GoogleMapsComponent }
         ]
       },
-      {path: 'visitpanel', component: VisitPanelComponent}
+      {path: 'visitpanel', component: VisitPanelComponent},
+      {path: 'applications', component: ApplicationListComponent}
     ]
   },
   {
     path: 'adminpanel', component: AdminPanelComponent, children: [
       { path: 'userlist', component: UserListComponent },
       { path: 'institutionpanel', component: InstitutionPanelComponent },
-      { path: 'institutionlist', component: InstitutionListComponent }
+      { path: 'institutionlist', component: InstitutionListComponent },
+      { path: 'applicationadd', component: ApplicationAddComponent}
     ]
   }
 ];

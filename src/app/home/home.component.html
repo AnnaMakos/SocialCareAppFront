@@ -2,7 +2,8 @@
     <mat-toolbar color="primary" class="mat-elevation-z24">
         <mat-toolbar-row>
             <span class="example-spacer"></span>
-
+            <ng-container *ngIf="ifSignedIn"><button mat-raised-button color="accent" class="span-menu"
+                [routerLink]="['./applications']">Wnioski</button></ng-container>
             <ng-container *ngIf="ifSignedIn"><button mat-raised-button color="accent" class="span-menu"
                     [routerLink]="['./visitpanel']">Umów się na
                     wizytę</button></ng-container>
