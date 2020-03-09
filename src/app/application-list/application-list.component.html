@@ -8,7 +8,7 @@
         <mat-table #table [dataSource]="applications">
   
           <ng-container matColumnDef="id">
-            <mat-header-cell *matHeaderCellDef>id</mat-header-cell>
+            <mat-header-cell *matHeaderCellDef>Id</mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
           </ng-container>
 
@@ -19,7 +19,7 @@
 
           <ng-container matColumnDef="path">
             <mat-header-cell *matHeaderCellDef>Link</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element.path}} </mat-cell>
+            <mat-cell *matCellDef="let element"><a href="{{element.path}}" target="_blank">Otwórz link</a></mat-cell>
           </ng-container>
   
   
