@@ -11,7 +11,7 @@ import { AuthService } from './auth/auth.service';
 import { TokenStorage } from './auth/token.storage';
 import { Interceptor } from './auth/interceptor';
 import { CommonModule } from '@angular/common';
-import { MatToolbarModule, MatButtonModule, MatCardModule, MatInputModule, MatDialogModule, MatTableModule, MatTableDataSource, MatSnackBarModule, MatMenuModule, MatIconModule, MatDividerModule, MatListModule, MatDatepickerModule, MatNativeDateModule, MatPaginatorModule, MatSortModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatCardModule, MatInputModule, MatDialogModule, MatTableModule, MatTableDataSource, MatSnackBarModule, MatMenuModule, MatIconModule, MatDividerModule, MatListModule, MatDatepickerModule, MatNativeDateModule, MatPaginatorModule, MatSortModule, MatFormField, MatSelectModule } from '@angular/material';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { UserListComponent } from './user-list/user-list.component';
@@ -30,6 +30,7 @@ import { ApplicationListComponent } from './application-list/application-list.co
 import { ApplicationService } from './service/application.service';
 import { ApplicationAddComponent } from './application-add/application-add.component';
 import { FileService } from './service/file.service';
+import { ApplicationFormComponent } from './application-form/application-form.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { FileService } from './service/file.service';
     VisitPanelComponent,
     MyVisitsComponent,
     ApplicationListComponent,
-    ApplicationAddComponent
+    ApplicationAddComponent,
+    ApplicationFormComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +74,8 @@ import { FileService } from './service/file.service';
     MatListModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSelectModule
   ],
   providers: [AuthService, TokenStorage, UserService, InstitutionService, ApplicationService, VisitService, FileService,
     {

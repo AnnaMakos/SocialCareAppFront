@@ -11,7 +11,7 @@ import { ApplicationDTO } from '../model/application.model';
 export class ApplicationListComponent implements OnInit {
 
   applications = new MatTableDataSource<ApplicationDTO>();
-  displayedColumns = ['id', 'name', 'path']
+  displayedColumns = ['id', 'name', 'path', 'fill']
 
   constructor(private applicationService: ApplicationService) { }
 

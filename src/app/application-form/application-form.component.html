@@ -1,0 +1,160 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>WNIOSEK O ŚWIADCZENIE 500+ NA DZIECKO</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <I>Dane we wniosku poniżej, które zostaną zapisane, zostaną zmienione również dla profilu użytkownika.</I>
+        <br>
+        <br>
+        <B>Dane osoby ubiegającej się o ustalenie prawa do świadczenia wychowawczego, zwanej dalej "osobą ubiegającą się"</B>
+        <mat-divider></mat-divider>
+        <form class="example-form">
+            <table class="example-full-width" cellspacing="0">
+
+                <tr>
+                    <td>Imię</td>
+                    <td>{{currentUser.name}}</td>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="edytuj" [(ngModel)]="name" name="name">
+                        </mat-form-field>
+                    </td>
+                    <td><button mat-button color="primary">Zapisz</button></td>
+                </tr>
+                <tr>
+                    <td>Nazwisko</td>
+                    <td>{{currentUser.surname}}</td>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="edytuj" [(ngModel)]="surname" name="surname">
+                        </mat-form-field>
+                    </td>
+                    <td><button mat-button color="primary">Zapisz</button></td>
+                </tr>
+                <tr>
+                    <td>Numer PESEL</td>
+                    <td>{{currentUser.pesel}}</td>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="edytuj" [(ngModel)]="pesel" name="pesel">
+                        </mat-form-field>
+                    </td>
+                    <td><button mat-button color="primary">Zapisz</button></td>
+                </tr>
+                <tr>
+                    <td>Stan cywilny</td>
+                    <td>
+                        <mat-form-field appearance="fill">
+                            <mat-label>wybierz stan cywilny</mat-label>
+                            <mat-select>
+                                <mat-option value="single">panna/kawaler</mat-option>
+                                <mat-option value="married">zamężna/żonaty</mat-option>
+                                <mat-option value="widow">wdowa/wdowiec</mat-option>
+                                <mat-option value="divorced">rozwiedziona/rozwiedziony</mat-option>
+                                <mat-option value="separated">separowana/separowany</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </td>
+                    <td>Obywatelstwo</td>
+                    <td>
+                        <mat-form-field appearance="fill">
+                            <mat-label>wybierz obywatelstwo</mat-label>
+                            <mat-select>
+                                <mat-option value="polish">polskie</mat-option>
+                                <mat-option value="other">zagraniczne</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <B>Miejsce zamieszkania</B>
+                <mat-divider></mat-divider>
+                <tr>
+                    <td>Ulica</td>
+                    <td>{{currentUser.street}}</td>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="edytuj" [(ngModel)]="street" name="street">
+                        </mat-form-field>
+                    </td>
+                    <td><button mat-button color="primary">Zapisz</button></td>
+                </tr>
+                <tr>
+                    <td>Numer domu</td>
+                    <td>{{currentUser.streetNumber}}</td>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="edytuj" [(ngModel)]="streetNumber" name="streetNumber">
+                        </mat-form-field>
+                    </td>
+                    <td><button mat-button color="primary">Zapisz</button></td>
+                </tr>
+                <tr>
+                    <td>Number mieszkania</td>
+                    <td>{{currentUser.localNumber}}</td>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="edytuj" [(ngModel)]="localNumber" name="localNumber">
+                        </mat-form-field>
+                    </td>
+                    <td><button mat-button color="primary">Zapisz</button></td>
+                </tr>
+                <tr>
+                    <td>Kod pocztowy</td>
+                    <td>{{currentUser.postcode}}</td>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="edytuj" [(ngModel)]="postcode" name="postcode">
+                        </mat-form-field>
+                    </td>
+                    <td><button mat-button color="primary">Zapisz</button></td>
+                </tr>
+                <tr>
+                    <td>Miasto</td>
+                    <td>{{currentUser.city}}</td>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="edytuj" [(ngModel)]="city" name="city">
+                        </mat-form-field>
+                    </td>
+                    <td><button mat-button color="primary">Zapisz</button></td>
+                </tr>
+                <B>Dane kontaktowe</B>
+                <mat-divider></mat-divider>
+                <tr>
+                    <td>Adres e-mail</td>
+                    <td>{{currentUser.email}}</td>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="edytuj" [(ngModel)]="email" name="email">
+                        </mat-form-field>
+                    </td>
+                    <td><button mat-button color="primary">Zapisz</button></td>
+                </tr>
+                <tr>
+                    <td>Numer telefonu</td>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="dodaj numer telefonu" [(ngModel)]="phone" name="phone"
+                                required>
+                        </mat-form-field>
+                    </td>
+                    <td>Uwagi</td>
+                    <td>
+                        <mat-form-field>
+                            <mat-label>Dopisz ewentualne uwagi</mat-label>
+                            <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+                                cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5"></textarea>
+                        </mat-form-field>
+                    </td>
+                </tr>
+
+
+
+            </table>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button [disabled]="!phone" (click)="register()" color="primary">Zarejestruj</button>
+    </mat-card-actions>
+</mat-card>

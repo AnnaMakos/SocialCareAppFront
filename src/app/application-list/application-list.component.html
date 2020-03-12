@@ -1,32 +1,43 @@
 <div>
-    <mat-card class="mat-elevation-z24"> 
-      <mat-card-header>
-        <mat-card-title>Wnioski (application-list)</mat-card-title>
-      </mat-card-header>
-  
-      <mat-card-content>
-        <mat-table #table [dataSource]="applications">
-  
-          <ng-container matColumnDef="id">
-            <mat-header-cell *matHeaderCellDef>Id</mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
-          </ng-container>
+  <mat-card class="mat-elevation-z24">
+    <mat-card-header>
+      <mat-card-title>Wnioski (application-list)</mat-card-title>
+    </mat-card-header>
 
-          <ng-container matColumnDef="name">
-            <mat-header-cell *matHeaderCellDef>Nazwa</mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
-          </ng-container>
+    <mat-card-content>
+      <mat-table #table [dataSource]="applications">
 
-          <ng-container matColumnDef="path">
-            <mat-header-cell *matHeaderCellDef>Link</mat-header-cell>
-            <mat-cell *matCellDef="let element"><a href="{{element.path}}" target="_blank">Otwórz link</a></mat-cell>
-          </ng-container>
-  
-  
-          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  
-        </mat-table>
-      </mat-card-content>
-    </mat-card>
-  </div>
+        <ng-container matColumnDef="id">
+          <mat-header-cell *matHeaderCellDef>Id</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef>Nazwa</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="path">
+          <mat-header-cell *matHeaderCellDef>Link</mat-header-cell>
+          <mat-cell *matCellDef="let element"><a href="{{element.path}}" target="_blank">Otwórz link</a></mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="fill">
+          <mat-header-cell *matHeaderCellDef>Wniosek online</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <ng-container *ngIf="element.name==='500+'">
+              <button mat-raised-button color="primary" [routerLink]="['../form']">Wypełnij wniosek</button>
+            </ng-container>
+
+          </mat-cell>
+        </ng-container>
+
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+      </mat-table>
+    </mat-card-content>
+  </mat-card>
+  <router-outlet></router-outlet>
+</div>
