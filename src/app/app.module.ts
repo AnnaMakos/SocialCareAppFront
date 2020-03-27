@@ -31,6 +31,7 @@ import { ApplicationService } from './service/application.service';
 import { ApplicationAddComponent } from './application-add/application-add.component';
 import { FileService } from './service/file.service';
 import { ApplicationFormComponent } from './application-form/application-form.component';
+import { ApplicationFormService } from './service/application.form.service';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,15 @@ import { ApplicationFormComponent } from './application-form/application-form.co
     MatPaginatorModule,
     MatSelectModule
   ],
-  providers: [AuthService, TokenStorage, UserService, InstitutionService, ApplicationService, VisitService, FileService,
+  providers: [
+    AuthService,
+    TokenStorage,
+    UserService,
+    InstitutionService,
+    ApplicationService,
+    VisitService,
+    FileService,
+    ApplicationFormService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: Interceptor,

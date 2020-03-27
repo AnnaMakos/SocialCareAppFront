@@ -1,13 +1,15 @@
 <mat-card>
     <mat-card-header>
-        <mat-card-title>WNIOSEK O ŚWIADCZENIE 500+ NA DZIECKO</mat-card-title>
+        <mat-card-title>(application-form) WNIOSEK O ŚWIADCZENIE 500+ NA DZIECKO</mat-card-title>
     </mat-card-header>
 
     <mat-card-content>
-        <I>Dane we wniosku poniżej, które zostaną zapisane, zostaną zmienione również dla profilu użytkownika.</I>
+        <I>Dane we wniosku poniżej, które zostaną zapisane, zostaną zmienione również dla profilu użytkownika.<br>
+            * Pola wymagane.</I>
         <br>
         <br>
-        <B>Dane osoby ubiegającej się o ustalenie prawa do świadczenia wychowawczego, zwanej dalej "osobą ubiegającą się"</B>
+        <B>Dane osoby ubiegającej się o ustalenie prawa do świadczenia wychowawczego, zwanej dalej "osobą ubiegającą
+            się"</B>
         <mat-divider></mat-divider>
         <form class="example-form">
             <table class="example-full-width" cellspacing="0">
@@ -47,7 +49,7 @@
                     <td>
                         <mat-form-field appearance="fill">
                             <mat-label>wybierz stan cywilny</mat-label>
-                            <mat-select>
+                            <mat-select [(ngModel)]="maritalStatus" name="maritalStatus" required>
                                 <mat-option value="single">panna/kawaler</mat-option>
                                 <mat-option value="married">zamężna/żonaty</mat-option>
                                 <mat-option value="widow">wdowa/wdowiec</mat-option>
@@ -60,7 +62,7 @@
                     <td>
                         <mat-form-field appearance="fill">
                             <mat-label>wybierz obywatelstwo</mat-label>
-                            <mat-select>
+                            <mat-select [(ngModel)]="citizenship" name="citizenship" required>
                                 <mat-option value="polish">polskie</mat-option>
                                 <mat-option value="other">zagraniczne</mat-option>
                             </mat-select>
@@ -90,7 +92,7 @@
                     <td><button mat-button color="primary">Zapisz</button></td>
                 </tr>
                 <tr>
-                    <td>Number mieszkania</td>
+                    <td>Numer mieszkania</td>
                     <td>{{currentUser.localNumber}}</td>
                     <td>
                         <mat-form-field class="example-full-width">
@@ -149,12 +151,78 @@
                     </td>
                 </tr>
 
-
-
+                <B>INFORMACJE O DZIECIACH</B>
+                <mat-divider></mat-divider>
+                <tr>
+                    <td>
+                        <B>Ilość dzieci</B>
+                    </td>
+                    <td>
+                        <mat-form-field appearance="fill">
+                            <mat-label>wybierz ilość dzieci</mat-label>
+                            <mat-select [(ngModel)]="childrenNumber" name="childrenNumber" required>
+                                <mat-option value=1>1</mat-option>
+                                <mat-option value=2>2</mat-option>
+                                <mat-option value=3>3</mat-option>
+                                <mat-option value=4>4</mat-option>
+                                <mat-option value=5>5</mat-option>
+                                <mat-option value=6>6</mat-option>
+                                <mat-option value=7>7</mat-option>
+                                <mat-option value=8>8</mat-option>
+                                <mat-option value=9>9</mat-option>
+                                <mat-option value=10>10</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <button mat-raised-button [disabled]="!childrenNumber" color="primary">Zatwierdź ilość
+                            dzieci</button>
+                    </td>
+                </tr>
+                <B>Dane pierwszego dziecka</B>
+                <mat-divider></mat-divider>
+                <tr>
+                    <td>Imię</td>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="dodaj imię dziecka" [(ngModel)]="childName" name="childName"
+                                required>
+                        </mat-form-field>
+                    </td>
+                    <td>Nazwisko</td>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="dodaj nazwisko dziecka" [(ngModel)]="childSurname"
+                                name="childSurname" required>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>Numer PESEL</td>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="dodaj numer PESEL dziecka" [(ngModel)]="childPesel"
+                                name="childPesel" required>
+                        </mat-form-field>
+                    </td>
+                    <td>Obywatelstwo</td>
+                    <td>
+                        <mat-form-field appearance="fill">
+                            <mat-label>wybierz obywatelstwo</mat-label>
+                            <mat-select [(ngModel)]="citizenship" name="citizenship" required>
+                                <mat-option value="polish">polskie</mat-option>
+                                <mat-option value="other">zagraniczne</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                
             </table>
         </form>
     </mat-card-content>
     <mat-card-actions>
-        <button mat-raised-button [disabled]="!phone" (click)="register()" color="primary">Zarejestruj</button>
+        <button mat-raised-button [disabled]="!phone || !maritalStatus || !citizenship" (click)="addForm()"
+            color="primary">Dalej</button>
     </mat-card-actions>
 </mat-card>
