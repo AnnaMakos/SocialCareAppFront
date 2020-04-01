@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserDTO } from '../model/user.model';
 import { UserService } from '../service/user.service';
 import { ApplicationFormService } from '../service/application.form.service';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, MatTableDataSource } from '@angular/material';
 
 @Component({
   selector: 'app-application-form',
@@ -13,6 +13,9 @@ export class ApplicationFormComponent implements OnInit {
 
   currentUser: UserDTO;
   institutionName: string;
+  numberList = [1, 2, 3];
+  childrenList = [];
+
 
   constructor(private userService: UserService,
     private applicationFormService: ApplicationFormService,
@@ -23,8 +26,8 @@ export class ApplicationFormComponent implements OnInit {
   citizenship: string;
   phone: string;
   comments: string = '';
-  username: string ="anja";
-  childNumber: number;
+  username: string = "anja";
+  numberOfChildren: number = 0;
 
   ngOnInit() {
     this.refresh();
@@ -40,7 +43,7 @@ export class ApplicationFormComponent implements OnInit {
     console.log("phone " + this.phone);
     console.log("comments " + this.comments);
     console.log("maritals " + this.maritalStatus);
-    console.log("number " + this.childNumber);
+    console.log("number " + this.numberOfChildren);
 
     this.applicationFormService.addApplicationForm(
       this.applicationStatus,
@@ -50,9 +53,20 @@ export class ApplicationFormComponent implements OnInit {
       this.comments,
       this.username
     ).subscribe(data => {
-this.openSnackBar("Wniosek został wysłany", "OK");
+      this.openSnackBar("Wniosek został wysłany", "OK");
     }
     )
+  }
+
+  setChildrenNumber(childNum: number) {
+    console.log("number " + this.numberOfChildren);
+    this.numberOfChildren = childNum;
+    console.log("number " + this.numberOfChildren);
+
+    for(var i = 0; i < this.numberOfChildren; i++) {
+      this.childrenList[i] = i;
+      console.log(" list: " + this.childrenList[i]);
+    }
   }
 
   openSnackBar(message: string, action: string) {
