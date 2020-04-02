@@ -1,6 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { ChildFormDTO } from '../model/child-form.model';
+import { ApplicationFormDTO } from '../model/application-form.model';
+const httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
 
 @Injectable()
 export class ApplicationFormService {
@@ -15,7 +20,7 @@ export class ApplicationFormService {
         phone: string,
         comments: string,
         username: string
-    ): Observable<any> {
+    ): Observable<ApplicationFormDTO> {
 
         const form = {
             applicationStatus: applicationStatus,
@@ -25,11 +30,26 @@ export class ApplicationFormService {
             comments: comments,
             username: username
         }
+        
+        return this.http.post<ApplicationFormDTO>(this.applicationUrl + 'addform', form);
+    }
 
-        const options = {
-            responseType: 'text' as 'json'
+    public addChildForm(
+        name: string,
+        surname: string,
+        pesel: string,
+        citizenship,
+        id: number
+    ): Observable<ChildFormDTO> {
+
+        const form = {
+            name: name,
+            surname: surname,
+            pesel: pesel,
+            citizenship: citizenship
         }
-        return this.http.post<any>(this.applicationUrl + 'addform', form, options);
+
+        return this.http.post<ChildFormDTO>(this.applicationUrl + "addchild/" + id, form);
     }
 
 }
