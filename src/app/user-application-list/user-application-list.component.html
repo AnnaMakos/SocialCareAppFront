@@ -1,0 +1,25 @@
+<mat-card class="mat-elevation-z24">
+    <mat-card-header>
+        <mat-card-title>Moje wnioski (user-application-list)</mat-card-title>
+    </mat-card-header>
+    <!-- <ng-container *ngIf="currentUserLoaded | async"> -->
+    <mat-card-content>
+
+        <ng-container *ngIf="currentUserLoaded | async">
+        <mat-table #table [dataSource]="applications">
+
+
+            <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef>Citizenship</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.citizenship}}</mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+        </mat-table>
+        </ng-container>
+    </mat-card-content>
+</mat-card>
+
+<!-- </ng-container> -->

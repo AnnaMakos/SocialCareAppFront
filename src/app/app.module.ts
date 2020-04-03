@@ -32,6 +32,7 @@ import { ApplicationAddComponent } from './application-add/application-add.compo
 import { FileService } from './service/file.service';
 import { ApplicationFormComponent } from './application-form/application-form.component';
 import { ApplicationFormService } from './service/application.form.service';
+import { UserApplicationListComponent } from './user-application-list/user-application-list.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,9 @@ import { ApplicationFormService } from './service/application.form.service';
     MyVisitsComponent,
     ApplicationListComponent,
     ApplicationAddComponent,
-    ApplicationFormComponent
+    ApplicationFormComponent,
+    UserApplicationListComponent,
+    UserApplicationListComponent
   ],
   imports: [
     BrowserModule,

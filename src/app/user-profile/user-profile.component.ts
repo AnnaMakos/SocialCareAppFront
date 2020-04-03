@@ -12,6 +12,7 @@ export class UserProfileComponent implements OnInit {
 
   currentUser: UserDTO;
   institutionName: string;
+  currentUserLoaded: Promise<boolean>;
 
   constructor(private userService: UserService) { }
 
@@ -19,9 +20,11 @@ export class UserProfileComponent implements OnInit {
     this.refresh();
   }
 
-  refresh(){
-    this.userService.getCurrentUser().subscribe(user =>
-      this.currentUser = user)
+  refresh() {
+    this.userService.getCurrentUser().subscribe(user => {
+      this.currentUserLoaded = Promise.resolve(true);
+      this.currentUser = user;
+    })
   }
 
 }

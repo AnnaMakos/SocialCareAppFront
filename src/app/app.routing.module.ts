@@ -16,12 +16,14 @@ import { MyVisitsComponent } from './my-visits/my-visits.component';
 import { ApplicationListComponent } from './application-list/application-list.component';
 import { ApplicationAddComponent } from './application-add/application-add.component';
 import { ApplicationFormComponent } from './application-form/application-form.component';
+import { UserApplicationListComponent } from './user-application-list/user-application-list.component';
 
 const routes: Routes = [
   {
     path: 'user', component: UserComponent, children: [
       { path: 'profile', component: UserProfileComponent },
-      { path: 'visits', component: MyVisitsComponent }
+      { path: 'visits', component: MyVisitsComponent },
+      { path: 'applications', component: UserApplicationListComponent }
     ]
   },
   { path: 'login', component: LoginComponent },

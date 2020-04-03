@@ -20,5 +20,6 @@ export class ApplicationService {
   public addApplication(application: ApplicationAddDTO): Observable<ApplicationDTO> {
       return this.http.post<ApplicationDTO>(this.applicationUrl + "/add", application);
   }
+  
 
 }

@@ -20,9 +20,10 @@ export interface ApplicationFormDTO {
     citizenship: string;
     phone: string;
     comments: string;
-    children: ChildFormDTO[];
-    applicant: UserDTO;
+    user: UserDTO;
     official: UserDTO;
+    children: ChildFormDTO[];
+    
 }
 
 export interface ApplicationFormBasicDTO {

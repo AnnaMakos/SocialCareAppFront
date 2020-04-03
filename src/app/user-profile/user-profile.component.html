@@ -5,34 +5,39 @@
         </mat-card-header>
 
         <mat-card-content>
-            <div class="container">
-                <mat-list>
-                    <div class="row">
-                        <div class="col">
-                            <mat-list-item>Login</mat-list-item>
-                            <mat-list-item>Imię</mat-list-item>
-                            <mat-list-item>Nazwisko</mat-list-item>
-                            <mat-list-item>Email</mat-list-item>
-                            <mat-list-item>Numer PESEL</mat-list-item>
-                            <mat-list-item>Adres</mat-list-item>
-                            <mat-list-item></mat-list-item>
-                            <mat-list-item>Instytucja</mat-list-item>
-                            <mat-list-item>Adres instytucji</mat-list-item>
+            <ng-container *ngIf="currentUserLoaded | async">
+                <div class="container">
+                    <mat-list>
+                        <div class="row">
+                            <div class="col">
+                                <mat-list-item>Login</mat-list-item>
+                                <mat-list-item>Imię</mat-list-item>
+                                <mat-list-item>Nazwisko</mat-list-item>
+                                <mat-list-item>Email</mat-list-item>
+                                <mat-list-item>Numer PESEL</mat-list-item>
+                                <mat-list-item>Adres</mat-list-item>
+                                <mat-list-item></mat-list-item>
+                                <mat-list-item>Instytucja</mat-list-item>
+                                <mat-list-item>Adres instytucji</mat-list-item>
+                            </div>
+                            <div class="col">
+                                <mat-list-item>{{currentUser.username}}</mat-list-item>
+                                <mat-list-item>{{currentUser.name}}</mat-list-item>
+                                <mat-list-item>{{currentUser.surname}}</mat-list-item>
+                                <mat-list-item>{{currentUser.email}}</mat-list-item>
+                                <mat-list-item>{{currentUser.pesel}}</mat-list-item>
+                                <mat-list-item>{{currentUser.street}} {{currentUser.streetNumber}}
+                                    {{currentUser.localNumber}},</mat-list-item>
+                                <mat-list-item>{{currentUser.postcode}} {{currentUser.city}}</mat-list-item>
+                                <mat-list-item>{{currentUser.institution ? currentUser.institution.name : "-" }}
+                                </mat-list-item>
+                                <mat-list-item>{{currentUser.institution ? currentUser.institution.address : "-" }}
+                                </mat-list-item>
+                            </div>
                         </div>
-                        <div class="col">
-                            <mat-list-item>{{currentUser.username}}</mat-list-item>
-                            <mat-list-item>{{currentUser.name}}</mat-list-item>
-                            <mat-list-item>{{currentUser.surname}}</mat-list-item>
-                            <mat-list-item>{{currentUser.email}}</mat-list-item>
-                            <mat-list-item>{{currentUser.pesel}}</mat-list-item>
-                            <mat-list-item>{{currentUser.street}} {{currentUser.streetNumber}} {{currentUser.localNumber}},</mat-list-item>
-                            <mat-list-item>{{currentUser.postcode}} {{currentUser.city}}</mat-list-item>
-                            <mat-list-item>{{currentUser.institution ? currentUser.institution.name : "-" }}</mat-list-item>
-                            <mat-list-item>{{currentUser.institution ? currentUser.institution.address : "-" }}</mat-list-item>
-                        </div>
-                    </div>
-                </mat-list>
-            </div>
+                    </mat-list>
+                </div>
+            </ng-container>
         </mat-card-content>
     </mat-card>
 </div>

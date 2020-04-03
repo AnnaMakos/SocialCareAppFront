@@ -24,11 +24,8 @@ export class MyVisitsComponent implements OnInit {
 
   refresh() {
     this.userService.getCurrentUser().subscribe(user => {
-      console.log("=>>>" + user.name);
       this.currentUser = user;
       this.visitService.findVisitsByUser(this.currentUser.username).subscribe(visits => {
-        console.log("w finkcji");
-        console.log("=>>>" + visits);
         this.visits.data = visits;
       })
     });

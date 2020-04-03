@@ -9,6 +9,7 @@ const httpOptions = {
 
 @Injectable()
 export class ApplicationFormService {
+
     private applicationUrl = 'http://localhost:8080/applicationform/';
 
     constructor(private http: HttpClient) { }
@@ -50,6 +51,10 @@ export class ApplicationFormService {
         }
 
         return this.http.post<ChildFormDTO>(this.applicationUrl + "addchild/" + id, form);
+    }
+
+    public findAllApplicationsByUsername(username: string) : Observable<ApplicationFormDTO[]> {
+        return this.http.get<ApplicationFormDTO[]>(this.applicationUrl + "show/" + username);
     }
 
 }
