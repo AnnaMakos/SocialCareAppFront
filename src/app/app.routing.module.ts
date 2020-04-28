@@ -17,6 +17,7 @@ import { ApplicationListComponent } from './application-list/application-list.co
 import { ApplicationAddComponent } from './application-add/application-add.component';
 import { ApplicationFormComponent } from './application-form/application-form.component';
 import { UserApplicationListComponent } from './user-application-list/user-application-list.component';
+import { AdminApplicationsListComponent } from './admin-applications-list/admin-applications-list.component';
 
 const routes: Routes = [
   {
@@ -50,7 +51,8 @@ const routes: Routes = [
       { path: 'userlist', component: UserListComponent },
       { path: 'institutionpanel', component: InstitutionPanelComponent },
       { path: 'institutionlist', component: InstitutionListComponent },
-      { path: 'applicationadd', component: ApplicationAddComponent }
+      { path: 'applicationadd', component: ApplicationAddComponent },
+      { path: 'applicationslist', component: AdminApplicationsListComponent}
     ]
   }
 ];

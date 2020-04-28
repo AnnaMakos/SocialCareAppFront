@@ -33,6 +33,7 @@ import { FileService } from './service/file.service';
 import { ApplicationFormComponent } from './application-form/application-form.component';
 import { ApplicationFormService } from './service/application.form.service';
 import { UserApplicationListComponent } from './user-application-list/user-application-list.component';
+import { AdminApplicationsListComponent } from './admin-applications-list/admin-applications-list.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { UserApplicationListComponent } from './user-application-list/user-appli
     ApplicationAddComponent,
     ApplicationFormComponent,
     UserApplicationListComponent,
-    UserApplicationListComponent
+    UserApplicationListComponent,
+    AdminApplicationsListComponent
   ],
   imports: [
     BrowserModule,
