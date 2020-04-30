@@ -54,8 +54,12 @@ export class ApplicationFormService {
         return this.http.post<ChildFormDTO>(this.applicationUrl + "addchild/" + id, form);
     }
 
-    public findAllApplicationsByUsername(username: string): Observable<ApplicationFormDTO[]> {
+    public findAllByApplicantUsername(username: string): Observable<ApplicationFormDTO[]> {
         return this.http.get<ApplicationFormDTO[]>(this.applicationUrl + "show/" + username);
+    }
+
+    public findAllByOfficialUsername(username: string): Observable<ApplicationFormDTO[]> {
+        return this.http.get<ApplicationFormDTO[]>(this.applicationUrl + "showofficial/" + username);
     }
 
     public findAll(): Observable<ApplicationFormDTO[]> {
@@ -63,14 +67,17 @@ export class ApplicationFormService {
     }
 
     public alterOfficial(officialUsername: string): Observable<ApplicationFormDTO> {
-        console.log("jestem w servisie " + officialUsername + " id wniosku " + this.currentFormId);
-
         let myHttp: string;
         myHttp = this.applicationUrl + "addofficial/" + this.currentFormId + "/" + officialUsername;
-        console.log(myHttp);
-        
-
         return this.http.put<ApplicationFormDTO>(myHttp, null);
     }
 
-  }
+    public findById(id: number): Observable<ApplicationFormDTO> {
+        return this.http.get<ApplicationFormDTO>(this.applicationUrl + id);
+    }
+
+    public alterApplicationStatus(status: string, id: number): Observable<ApplicationFormDTO> {
+        return this.http.put<ApplicationFormDTO>(this.applicationUrl + "alterstatus/" + status + "/" + id, null);
+    }
+
+}

@@ -19,6 +19,9 @@
         <button mat-raised-button class="span-menu" [routerLink]="['/adminpanel/userlist']">Panel
           administratora</button>
       </ng-container>
+      <ng-container *ngIf="ifOfficial()">
+        <button mat-raised-button class="span-menu" [routerLink]="['/officialpanel']">Panel urzędnika</button>
+      </ng-container>
     </mat-toolbar-row>
   </mat-toolbar>
 

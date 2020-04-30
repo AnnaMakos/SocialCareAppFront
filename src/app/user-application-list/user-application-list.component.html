@@ -2,24 +2,44 @@
     <mat-card-header>
         <mat-card-title>Moje wnioski (user-application-list)</mat-card-title>
     </mat-card-header>
-    <!-- <ng-container *ngIf="currentUserLoaded | async"> -->
     <mat-card-content>
 
         <ng-container *ngIf="currentUserLoaded | async">
-        <mat-table #table [dataSource]="applications">
+            <mat-table #table [dataSource]="applications">
 
 
-            <ng-container matColumnDef="name">
-                <mat-header-cell *matHeaderCellDef>Citizenship</mat-header-cell>
-                <mat-cell *matCellDef="let element">{{element.citizenship}}</mat-cell>
-            </ng-container>
+                <ng-container matColumnDef="status">
+                    <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.applicationStatus}}</mat-cell>
+                </ng-container>
 
-            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                <ng-container matColumnDef="official">
+                    <mat-header-cell *matHeaderCellDef>Urzędnik</mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                        {{element.official.name ? element.official.name : "Urzędnik jeszcze nie przydzielony"}}
+                        {{element.official.surname ? element.official.surname : ""}}</mat-cell>
+                </ng-container>
 
-        </mat-table>
+                <ng-container matColumnDef="name">
+                    <mat-header-cell *matHeaderCellDef>Nazwa wniosku</mat-header-cell>
+                    <mat-cell *matCellDef="let element">Dofinansowanie 500+</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="button">
+                    <mat-header-cell *matHeaderCellDef>Szczegóły</mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                        <button mat-raised-button color="primary" (click)="selectForm(element.id)"
+                            [routerLink]="['../userformview']">
+                            Otwórz
+                        </button>
+                    </mat-cell>
+                </ng-container>
+
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+            </mat-table>
         </ng-container>
     </mat-card-content>
 </mat-card>
-
-<!-- </ng-container> -->

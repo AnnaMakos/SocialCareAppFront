@@ -46,4 +46,14 @@ export class AppComponent {
     return isAdmin;
   }
 
+  ifOfficial(): boolean {
+    let isOfficial = false;
+    this.roles.forEach(role => {
+      if(role == "ROLE_OFFICIAL"){
+        isOfficial = true;
+      }
+    });
+    return isOfficial;
+  }
+
 }

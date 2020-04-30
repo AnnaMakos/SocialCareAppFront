@@ -1,0 +1,42 @@
+<mat-card class="mat-elevation-z24">
+    <mat-card-header>
+        <mat-card-title>Wnioski do przetworzenia (official-applications)</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+
+        <ng-container *ngIf="currentUserLoaded | async">
+        <mat-table #table [dataSource]="applications">
+
+
+            <ng-container matColumnDef="status">
+                <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.applicationStatus}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef>Aplikant</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.user.name}} {{element.user.surname}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="citizenship">
+                <mat-header-cell *matHeaderCellDef>Obywatelstwo</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.citizenship}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="button">
+                <mat-header-cell *matHeaderCellDef>Czynność</mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                    <button mat-raised-button color="primary" (click)="selectForm(element.id)" [routerLink]="['../formview']">
+                        Otwórz
+                    </button>
+                </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+        </mat-table>
+        </ng-container>
+    </mat-card-content>
+</mat-card>
+<router-outlet></router-outlet>

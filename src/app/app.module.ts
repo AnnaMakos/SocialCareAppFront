@@ -35,6 +35,10 @@ import { ApplicationFormService } from './service/application.form.service';
 import { UserApplicationListComponent } from './user-application-list/user-application-list.component';
 import { AdminApplicationsListComponent } from './admin-applications-list/admin-applications-list.component';
 import { OfficialListComponent } from './official-list/official-list.component';
+import { OfficialPanelComponent } from './official-panel/official-panel.component';
+import { OfficialApplicationsComponent } from './official-applications/official-applications.component';
+import { ApplicationFormViewComponent } from './application-form-view/application-form-view.component';
+import { UserApplicationFormViewComponent } from './user-application-form-view/user-application-form-view.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +62,11 @@ import { OfficialListComponent } from './official-list/official-list.component';
     UserApplicationListComponent,
     UserApplicationListComponent,
     AdminApplicationsListComponent,
-    OfficialListComponent
+    OfficialListComponent,
+    OfficialPanelComponent,
+    OfficialApplicationsComponent,
+    ApplicationFormViewComponent,
+    UserApplicationFormViewComponent
   ],
   imports: [
     BrowserModule,

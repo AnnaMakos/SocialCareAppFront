@@ -19,13 +19,18 @@ import { ApplicationFormComponent } from './application-form/application-form.co
 import { UserApplicationListComponent } from './user-application-list/user-application-list.component';
 import { AdminApplicationsListComponent } from './admin-applications-list/admin-applications-list.component';
 import { OfficialListComponent } from './official-list/official-list.component';
+import { OfficialPanelComponent } from './official-panel/official-panel.component';
+import { OfficialApplicationsComponent } from './official-applications/official-applications.component';
+import { ApplicationFormViewComponent } from './application-form-view/application-form-view.component';
+import { UserApplicationFormViewComponent } from './user-application-form-view/user-application-form-view.component';
 
 const routes: Routes = [
   {
     path: 'user', component: UserComponent, children: [
       { path: 'profile', component: UserProfileComponent },
       { path: 'visits', component: MyVisitsComponent },
-      { path: 'applications', component: UserApplicationListComponent }
+      { path: 'applications', component: UserApplicationListComponent },
+      { path: 'userformview', component: UserApplicationFormViewComponent}
     ]
   },
   { path: 'login', component: LoginComponent },
@@ -53,8 +58,14 @@ const routes: Routes = [
       { path: 'institutionpanel', component: InstitutionPanelComponent },
       { path: 'institutionlist', component: InstitutionListComponent },
       { path: 'applicationadd', component: ApplicationAddComponent },
-      { path: 'applicationslist', component: AdminApplicationsListComponent},
-      { path: 'officiallist', component: OfficialListComponent}
+      { path: 'applicationslist', component: AdminApplicationsListComponent },
+      { path: 'officiallist', component: OfficialListComponent }
+    ]
+  },
+  {
+    path: 'officialpanel', component: OfficialPanelComponent, children: [
+      { path: 'applications', component: OfficialApplicationsComponent },
+      { path: 'formview', component: ApplicationFormViewComponent}
     ]
   }
 ];

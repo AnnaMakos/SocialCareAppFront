@@ -21,7 +21,6 @@ export class AdminApplicationsListComponent implements OnInit {
 
   public selectForm(id: number) {
     this.applicationFormService.currentFormId = id;
-    console.log("funkcja w komponencie + id wniosku " + id);
   }
 
   refresh() {

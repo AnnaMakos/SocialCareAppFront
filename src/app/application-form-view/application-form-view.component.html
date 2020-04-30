@@ -1,0 +1,99 @@
+<div>
+    <mat-card class="mat-elevation-z24">
+        <mat-card-header>
+            <mat-card-title>Wniosek o dofinansowanie 500+ (application-form-view)</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+            <ng-container *ngIf="currentFormLoaded | async">
+                <div class="container">
+                    <mat-list>
+                        <br>
+                        Dane rodzica
+                        <mat-divider></mat-divider>
+                        <div class="row">
+                            <div class="col">
+                                <mat-list-item>Status</mat-list-item>
+                                <mat-list-item>Imię</mat-list-item>
+                                <mat-list-item>Nazwisko</mat-list-item>
+                                <mat-list-item>Email</mat-list-item>
+                                <mat-list-item>Numer PESEL</mat-list-item>
+                                <mat-list-item>Adres</mat-list-item>
+                                <mat-list-item></mat-list-item>
+                                <mat-list-item>Stan cywilny</mat-list-item>
+                                <mat-list-item>Obywatelstwo</mat-list-item>
+                                <mat-list-item>Numer telefonu</mat-list-item>
+                                <mat-list-item>Komentarz</mat-list-item>
+                            </div>
+                            <div class="col">
+                                <mat-list-item>{{form.applicationStatus}}</mat-list-item>
+                                <mat-list-item>{{form.user.name}}</mat-list-item>
+                                <mat-list-item>{{form.user.surname}}</mat-list-item>
+                                <mat-list-item>{{form.user.email}}</mat-list-item>
+                                <mat-list-item>{{form.user.pesel}}</mat-list-item>
+                                <mat-list-item>{{form.user.street}} {{form.user.streetNumber}}
+                                    {{form.user.localNumber}},</mat-list-item>
+                                <mat-list-item>{{form.user.postcode}} {{form.user.city}}</mat-list-item>
+                                <mat-list-item>{{form.maritalStatus}}</mat-list-item>
+                                <mat-list-item>{{form.citizenship}}</mat-list-item>
+                                <mat-list-item>{{form.phone}}</mat-list-item>
+                                <mat-list-item>{{form.comments ? form.comments : "-"}}</mat-list-item>
+                            </div>
+                        </div>
+                    </mat-list>
+                    <br>
+                    Informacje o dzieciach
+                    <mat-divider></mat-divider>
+                    <mat-table #table [dataSource]="children">
+
+                        <ng-container matColumnDef="name">
+                            <mat-header-cell *matHeaderCellDef>Imię</mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+                        </ng-container>
+
+                        <ng-container matColumnDef="surname">
+                            <mat-header-cell *matHeaderCellDef>Nazwisko</mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.surname}} </mat-cell>
+                        </ng-container>
+
+                        <ng-container matColumnDef="pesel">
+                            <mat-header-cell *matHeaderCellDef>Numer PESEL</mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.pesel}} </mat-cell>
+                        </ng-container>
+
+                        <ng-container matColumnDef="citizenship">
+                            <mat-header-cell *matHeaderCellDef>Obywatelstwo</mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.citizenship}} </mat-cell>
+                        </ng-container>
+
+                        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                    </mat-table>
+                    <br>
+
+                    <form class="example-form">
+                        <table class="example-full-width" style="width:100%">
+                            <tr>
+                                <td>
+                                    <mat-form-field appearance="fill">
+                                        <mat-label>zmień status wniosku</mat-label>
+                                        <mat-select [(ngModel)]="applicationStatus" name="applicationStatus" required>
+                                            <mat-option value="REJECTED">odrzucony</mat-option>
+                                            <mat-option value="APPROVED">zatwierdzony</mat-option>
+                                            <mat-option value="IN_PROGRESS">w toku</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </td>
+                                <td>
+                                    <button mat-raised-button [disabled]="!applicationStatus"
+                                        (color)="primary" (click)="alterApplicationStatus(applicationStatus, form.id)">Zatwierdź wybór</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+
+            </ng-container>
+        </mat-card-content>
+    </mat-card>
+</div>
