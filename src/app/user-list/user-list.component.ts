@@ -19,7 +19,7 @@ export class UserListComponent implements OnInit {
     this.refresh()
   }
 
-  alterUserRole(username: string, role: string){
+  alterUserRole(username: string, role: string) {
     this.userService.alterUserRole(username, role).subscribe(
       data => {
         console.log("User altered");
@@ -29,33 +29,34 @@ export class UserListComponent implements OnInit {
     );
   }
 
-  refresh(){
+  refresh() {
     this.userService.findAllUsers().subscribe(users => {
       this.users.data = users;
+      console.log("users >>> " + users);
       this.changeRoleNames();
     })
   }
 
-  changeRoleNames(){
+  changeRoleNames() {
     this.users.data.forEach(user => {
 
       let userRoles: string[] = [];
 
       user.roles.forEach(role => {
-        if(role === "ROLE_ADMIN")
-        userRoles.push("Administrator");
-        if(role === "ROLE_OFFICIAL")
-        userRoles.push("Urzędnik");
-        if(role === "ROLE_USER")
-        userRoles.push("Użytkownik");
-        if(role === "ROLE_APPLICANT")
-        userRoles.push("Aplikant");
+        if (role === "ROLE_ADMIN")
+          userRoles.push("Administrator");
+        if (role === "ROLE_OFFICIAL")
+          userRoles.push("Urzędnik");
+        if (role === "ROLE_USER")
+          userRoles.push("Użytkownik");
+        if (role === "ROLE_APPLICANT")
+          userRoles.push("Aplikant");
       });
       user.roles = userRoles;
     })
   }
 
-  openSnackBar(message: string, action: string){
+  openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action, {
       duration: 3000
     })

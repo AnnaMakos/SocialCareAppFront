@@ -34,6 +34,7 @@ import { ApplicationFormComponent } from './application-form/application-form.co
 import { ApplicationFormService } from './service/application.form.service';
 import { UserApplicationListComponent } from './user-application-list/user-application-list.component';
 import { AdminApplicationsListComponent } from './admin-applications-list/admin-applications-list.component';
+import { OfficialListComponent } from './official-list/official-list.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { AdminApplicationsListComponent } from './admin-applications-list/admin-
     ApplicationFormComponent,
     UserApplicationListComponent,
     UserApplicationListComponent,
-    AdminApplicationsListComponent
+    AdminApplicationsListComponent,
+    OfficialListComponent
   ],
   imports: [
     BrowserModule,

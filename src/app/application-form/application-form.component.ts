@@ -52,15 +52,6 @@ export class ApplicationFormComponent implements OnInit {
   }
 
   addForm() {
-    //   console.log("phone " + this.phone);
-    //   console.log("comments " + this.comments);
-    //   console.log("maritals " + this.maritalStatus);
-    //   console.log("number " + this.numberOfChildren);
-    //   for (var i = 0; i < this.numberOfChildren; i++) {
-    //     console.log("imie dziecka " + this.childrenName[i] + " nr " + i);
-    //     console.log("obywatelstwo dziecka " + this.childrenCitizenship[i] + " nr " + i);
-    //   }
-
     this.applicationFormService.addApplicationForm(
       this.applicationStatus,
       this.maritalStatus,
@@ -69,15 +60,13 @@ export class ApplicationFormComponent implements OnInit {
       this.comments,
       this.username
     ).subscribe(data => {
-      // this.currentFormId = data.id;
       this.currentForm = data;
       this.currentFormId = this.currentForm.id;
-      console.log("to jest data >>>> " + data.id);
-      console.log("citiz data >>>> " + data.citizenship);
-      console.log("to jest id formularza >>>>> " + this.currentFormId);
-      console.log("current form >>>> "+ this.currentForm);
-      console.log("current form id bezposredno >>>> "+ this.currentForm.id);
+      
       for (var i = 0; i < this.numberOfChildren; i++) {
+        if(!this.childrenCitizenship[i]) {
+          this.childrenCitizenship[i] = this.citizenship;
+        }
         this.applicationFormService.addChildForm(
           this.childrenName[i],
           this.childrenSurname[i],

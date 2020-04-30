@@ -2,10 +2,13 @@
       <mat-toolbar-row>
         <h2>Panel administratora (admin-panel)</h2>
         <span class="example-spacer"></span>
-        <button mat-raised-button class="span-menu" color="accent" [routerLink]="['./applicationslist']">Złożone wnioski</button>
-        <button mat-raised-button class="span-menu" color="accent" [routerLink]="['./applicationadd']">Dodaj wniosek</button>
-        <button mat-raised-button class="span-menu" color="accent" [routerLink]="['./userlist']">Użytkownicy</button>
-        <button mat-raised-button class="span-menu" color="accent" [routerLink]="['./institutionpanel']">Urzędnicy</button>
+        <button mat-raised-button class="span-menu" color="accent" [routerLink]="['./applicationslist']">Wnioski złożone przez użytkowników</button>
+        <button mat-raised-button class="span-menu" color="accent" [routerLink]="['./applicationadd']">Dodaj formularz wniosku</button>
+      </mat-toolbar-row>
+      <mat-toolbar-row>
+        <span class="example-spacer"></span>
+        <button mat-raised-button class="span-menu" color="accent" [routerLink]="['./userlist']">Lista wszystkich użytkowników</button>
+        <button mat-raised-button class="span-menu" color="accent" [routerLink]="['./institutionpanel']">Lista urzędników</button>
       </mat-toolbar-row>
     </mat-toolbar>
   

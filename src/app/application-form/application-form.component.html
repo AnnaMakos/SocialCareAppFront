@@ -186,7 +186,7 @@
                         <td>
                             <mat-form-field>
                                 <mat-label>Dopisz ewentualne uwagi</mat-label>
-                                <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+                                <textarea matInput [(ngModel)]="comments" name="comments" cdkTextareaAutosize #autosize="cdkTextareaAutosize"
                                     cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5"></textarea>
                             </mat-form-field>
                         </td>
@@ -235,7 +235,7 @@
                                 <td>Obywatelstwo</td>
                                 <td>
                                     <mat-form-field appearance="fill">
-                                        <mat-label>wybierz obywatelstwo</mat-label>
+                                        <mat-label>wybierz, jeśli inne niż wnioskodawcy</mat-label>
                                         <mat-select [(ngModel)]="childrenCitizenship[i]" name="childrenCitizenship"
                                             required>
                                             <mat-option value="polish">polskie</mat-option>

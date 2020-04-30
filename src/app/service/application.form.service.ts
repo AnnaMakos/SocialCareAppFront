@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { ChildFormDTO } from '../model/child-form.model';
 import { ApplicationFormDTO } from '../model/application-form.model';
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
+};
 
 @Injectable()
 export class ApplicationFormService {
 
     private applicationUrl = 'http://localhost:8080/applicationform/';
+    currentFormId: number;
 
     constructor(private http: HttpClient) { }
 
@@ -31,7 +32,7 @@ export class ApplicationFormService {
             comments: comments,
             username: username
         }
-        
+
         return this.http.post<ApplicationFormDTO>(this.applicationUrl + 'addform', form);
     }
 
@@ -53,8 +54,23 @@ export class ApplicationFormService {
         return this.http.post<ChildFormDTO>(this.applicationUrl + "addchild/" + id, form);
     }
 
-    public findAllApplicationsByUsername(username: string) : Observable<ApplicationFormDTO[]> {
+    public findAllApplicationsByUsername(username: string): Observable<ApplicationFormDTO[]> {
         return this.http.get<ApplicationFormDTO[]>(this.applicationUrl + "show/" + username);
     }
 
-}
+    public findAll(): Observable<ApplicationFormDTO[]> {
+        return this.http.get<ApplicationFormDTO[]>(this.applicationUrl + "show");
+    }
+
+    public alterOfficial(officialUsername: string): Observable<ApplicationFormDTO> {
+        console.log("jestem w servisie " + officialUsername + " id wniosku " + this.currentFormId);
+
+        let myHttp: string;
+        myHttp = this.applicationUrl + "addofficial/" + this.currentFormId + "/" + officialUsername;
+        console.log(myHttp);
+        
+
+        return this.http.put<ApplicationFormDTO>(myHttp, null);
+    }
+
+  }
