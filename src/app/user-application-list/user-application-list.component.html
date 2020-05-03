@@ -16,8 +16,8 @@
                 <ng-container matColumnDef="official">
                     <mat-header-cell *matHeaderCellDef>Urzędnik</mat-header-cell>
                     <mat-cell *matCellDef="let element">
-                        {{element.official.name ? element.official.name : "Urzędnik jeszcze nie przydzielony"}}
-                        {{element.official.surname ? element.official.surname : ""}}</mat-cell>
+                        {{element.official ? element.official.name : "Urzędnik jeszcze nie przydzielony"}}
+                        {{element.official ? element.official.surname : ""}}</mat-cell>
                 </ng-container>
 
                 <ng-container matColumnDef="name">

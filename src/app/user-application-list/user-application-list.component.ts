@@ -45,10 +45,7 @@ export class UserApplicationListComponent implements OnInit {
 
   findUsersApplications(username: string){
     this.applicationFormService.findAllByApplicantUsername(username).subscribe(data => {
-      this.applications.data = data;
-      console.log("application.data >>> " + this.applications.data[0].citizenship);
-      console.log("apps >>> " + data[0].citizenship);
-  
+      this.applications.data = data;  
     },
     error => {
       console.log("errrrrorrrrrrr +>>>" + error);

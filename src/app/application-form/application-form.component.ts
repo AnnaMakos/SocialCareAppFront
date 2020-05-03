@@ -20,7 +20,7 @@ export class ApplicationFormComponent implements OnInit {
   citizenship: string;
   phone: string;
   comments: string = '';
-  username: string = "anja";
+  username: string;
   numberOfChildren: number = 0;
   numberOfChildrenChosen: Promise<boolean>;
   currentUserLoaded: Promise<boolean>;
@@ -46,6 +46,7 @@ export class ApplicationFormComponent implements OnInit {
     this.userService.getCurrentUser().subscribe(user => {
       this.currentUser = user;
       this.currentUserLoaded = Promise.resolve(true);
+      this.username = user.username;
     }
     )
 
